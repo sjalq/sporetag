@@ -2,24 +2,24 @@ name = "sporetag"
 compatibility_date = "2024-07-12"
 pages_build_output_dir = "dist"
 
-# D1 Database Configuration
-[[d1_databases]]
-binding = "DB"
-database_name = "sporetag-db"
-database_id = "placeholder-for-actual-db-id"
+# Note: For Cloudflare Pages, D1 and KV bindings should be configured 
+# through the Cloudflare dashboard under Pages > Settings > Functions
+# Environment blocks are not used with Pages deployment
 
-[env.production]
-name = "sporetag"
+# The following configurations are commented out as they are 
+# Workers-specific and not compatible with Pages deployment:
 
-[[env.production.d1_databases]]
-binding = "DB"
-database_name = "sporetag-db-prod"
-database_id = "placeholder-for-prod-db-id"
+# D1 Database Configuration (configure via dashboard)
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "sporetag-db"
+# database_id = "placeholder-for-actual-db-id"
 
-[env.preview]
-name = "sporetag-preview"
+# KV Storage for Rate Limiting (configure via dashboard)
+# [[kv_namespaces]]
+# binding = "RATE_LIMITER"
+# id = "placeholder-for-rate-limiter-kv-id"
 
-[[env.preview.d1_databases]]
-binding = "DB"
-database_name = "sporetag-db-preview"
-database_id = "placeholder-for-preview-db-id"
+# Environment blocks are not used with Pages:
+# [env.production]
+# [env.preview]

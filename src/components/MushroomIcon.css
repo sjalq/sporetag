@@ -1,0 +1,29 @@
+.mushroom-icon {
+  display: inline-block;
+  animation: mushroom-pulse 2s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--glow-color, #8B5A2B) 40%, transparent))
+          drop-shadow(0 0 16px color-mix(in srgb, var(--glow-color, #8B5A2B) 20%, transparent));
+  transition: all 0.3s ease;
+}
+
+@keyframes mushroom-pulse {
+  0% { 
+    transform: scale(1);
+    filter: drop-shadow(0 0 8px color-mix(in srgb, var(--glow-color, #8B5A2B) 40%, transparent))
+            drop-shadow(0 0 16px color-mix(in srgb, var(--glow-color, #8B5A2B) 20%, transparent));
+  }
+  100% { 
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 12px color-mix(in srgb, var(--glow-color, #8B5A2B) 60%, transparent))
+            drop-shadow(0 0 24px color-mix(in srgb, var(--glow-color, #8B5A2B) 30%, transparent));
+  }
+}
+
+.mushroom-icon:hover {
+  animation-duration: 0.8s;
+  cursor: pointer;
+}
+
+.mushroom-icon svg {
+  display: block;
+}

@@ -26,3 +26,62 @@ dist-ssr
 # Cloudflare
 .wrangler
 .wrangler/
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.*.local
+*.env
+
+# Secrets and credentials
+secrets.json
+config/secrets.json
+credentials.json
+service-account.json
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.der
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+
+# API keys and tokens
+.secrets
+.credentials
+api-keys.json
+tokens.json
+auth.json
+
+# Backup files
+*.backup
+*.bak
+*.tmp
+*.temp
+*~
+.#*
+
+# Local development
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+.vscode/.ropeproject
+*.swp
+*.swo
+*~
+
+# Test files with credentials
+test-mcp-postgres.js
+*test*credentials*
+*test*secrets*

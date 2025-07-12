@@ -34,7 +34,17 @@ CREATE TABLE spores (
    ./scripts/setup-d1.sh
    ```
 
-3. **Update `wrangler.toml`** with the actual database IDs returned from step 2
+3. **Configure database bindings:**
+   
+   **For Cloudflare Pages (recommended):**
+   - Go to Cloudflare Dashboard → Pages → Your Project → Settings → Functions
+   - Add D1 database bindings:
+     - Variable name: `DB`
+     - D1 database: Select the appropriate database for each environment
+   
+   **For Workers deployment:**
+   - Update `wrangler.toml` with the actual database IDs returned from step 2
+   - Uncomment the D1 database configuration blocks
 
 4. **Run migrations:**
    ```bash
@@ -45,7 +55,18 @@ CREATE TABLE spores (
 
 ## Testing
 
-Test database connectivity:
+**Automated Connectivity Test:**
+```bash
+./test-db-connection.js
+```
+
+This script tests:
+- Database connectivity
+- Schema verification (tables and indexes)
+- INSERT/SELECT operations
+- Authentication status
+
+**Manual Testing:**
 ```bash
 npx wrangler d1 execute sporetag-db --command='SELECT name FROM sqlite_master WHERE type="table"'
 ```
