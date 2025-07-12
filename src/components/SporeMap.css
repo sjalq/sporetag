@@ -264,6 +264,20 @@
   z-index: 1000;
 }
 
+/* Mobile responsive adjustments for spore button */
+@media (max-width: 768px) {
+  .spore-button-container {
+    bottom: max(60px, env(safe-area-inset-bottom, 20px) + 40px);
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .spore-button-container {
+    bottom: max(80px, env(safe-area-inset-bottom, 20px) + 60px);
+  }
+}
+
 .spore-button {
   background: rgba(139, 90, 43, 0.9);
   border: 2px solid #D2691E;

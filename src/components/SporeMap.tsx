@@ -25,7 +25,7 @@ const SporeMap: React.FC<SporeMapProps> = ({ className = '' }) => {
   const [spores, setSpores] = useState<Spore[]>([]);
   const [loading, setLoading] = useState(false);
   const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
-  const [showSatellite, setShowSatellite] = useState(false);
+  const [showSatellite, setShowSatellite] = useState(true);
   const [showSporeModal, setShowSporeModal] = useState(false);
   const [sporeMessage, setSporeMessage] = useState('');
   const [submitting, setSubmitting] = useState(false);
