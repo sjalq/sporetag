@@ -2,8 +2,24 @@ name = "sporetag"
 compatibility_date = "2024-07-12"
 pages_build_output_dir = "dist"
 
+# D1 Database Configuration
+[[d1_databases]]
+binding = "DB"
+database_name = "sporetag-db"
+database_id = "placeholder-for-actual-db-id"
+
 [env.production]
 name = "sporetag"
 
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "sporetag-db-prod"
+database_id = "placeholder-for-prod-db-id"
+
 [env.preview]
 name = "sporetag-preview"
+
+[[env.preview.d1_databases]]
+binding = "DB"
+database_name = "sporetag-db-preview"
+database_id = "placeholder-for-preview-db-id"
