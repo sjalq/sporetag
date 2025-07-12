@@ -137,7 +137,7 @@ const SporeMap: React.FC<SporeMapProps> = ({ className = '' }) => {
   const createMushroomMarker = (spore: Spore) => {
     const mushroomHtml = `
       <div class="mushroom-marker" data-spore-id="${spore.id}">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <radialGradient id="cap-${spore.id}" cx="0.5" cy="0.3" r="0.8">
               <stop offset="0%" stop-color="#D2691E" />
@@ -154,14 +154,14 @@ const SporeMap: React.FC<SporeMapProps> = ({ className = '' }) => {
               <stop offset="100%" stop-color="#F0F0F0" />
             </radialGradient>
           </defs>
-          <ellipse cx="12" cy="9" rx="10" ry="6" fill="url(#cap-${spore.id})" stroke="#5D4037" stroke-width="0.5" />
-          <circle cx="8" cy="7" r="1.2" fill="url(#spots-${spore.id})" />
-          <circle cx="15" cy="6" r="0.8" fill="url(#spots-${spore.id})" />
-          <circle cx="11" cy="11" r="1" fill="url(#spots-${spore.id})" />
-          <circle cx="16" cy="9" r="0.6" fill="url(#spots-${spore.id})" />
-          <rect x="10" y="13" width="4" height="8" rx="2" ry="1" fill="url(#stem-${spore.id})" stroke="#D3C4A3" stroke-width="0.3" />
-          <ellipse cx="12" cy="14" rx="8" ry="2" fill="#8D6E63" opacity="0.6" />
-          <ellipse cx="12" cy="21.5" rx="3" ry="0.8" fill="#3E2723" opacity="0.4" />
+          <ellipse cx="24" cy="18" rx="20" ry="12" fill="url(#cap-${spore.id})" stroke="#5D4037" stroke-width="1" />
+          <circle cx="16" cy="14" r="2.4" fill="url(#spots-${spore.id})" />
+          <circle cx="30" cy="12" r="1.6" fill="url(#spots-${spore.id})" />
+          <circle cx="22" cy="22" r="2" fill="url(#spots-${spore.id})" />
+          <circle cx="32" cy="18" r="1.2" fill="url(#spots-${spore.id})" />
+          <rect x="20" y="26" width="8" height="16" rx="4" ry="2" fill="url(#stem-${spore.id})" stroke="#D3C4A3" stroke-width="0.6" />
+          <ellipse cx="24" cy="28" rx="16" ry="4" fill="#8D6E63" opacity="0.6" />
+          <ellipse cx="24" cy="43" rx="6" ry="1.6" fill="#3E2723" opacity="0.4" />
         </svg>
       </div>
     `;
@@ -169,9 +169,9 @@ const SporeMap: React.FC<SporeMapProps> = ({ className = '' }) => {
     return L.divIcon({
       html: mushroomHtml,
       className: 'custom-mushroom-icon',
-      iconSize: [24, 24],
-      iconAnchor: [12, 24],
-      popupAnchor: [0, -24]
+      iconSize: [48, 48],
+      iconAnchor: [24, 48],
+      popupAnchor: [0, -48]
     });
   };
 
@@ -279,7 +279,7 @@ const SporeMap: React.FC<SporeMapProps> = ({ className = '' }) => {
           <div className="spore-modal" onClick={(e) => e.stopPropagation()}>
             <div className="spore-modal-header">
               <h3>Drop a Spore</h3>
-              <button 
+              <button
                 className="spore-modal-close"
                 onClick={() => setShowSporeModal(false)}
               >
