@@ -361,7 +361,8 @@ const SporeMap: React.FC<SporeMapProps> = ({ className = '' }) => {
             return L.divIcon({
               html: `<div class="cluster-inner"><span>${count}</span></div>`,
               className,
-              iconSize: [40, 40]
+              iconSize: [40, 40],
+              iconAnchor: [20, 20]
             });
           }}
         >
