@@ -80,6 +80,8 @@ auth.json
 *.swp
 *.swo
 *~
+.dev.vars
+wrangler.dev.toml
 
 # Test files with credentials
 test-mcp-postgres.js

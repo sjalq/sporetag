@@ -8,11 +8,20 @@
   },
   "scripts": {
     "dev": "vite",
+    "dev:mock": "concurrently \"npm run mock-api\" \"npm run dev\"",
+    "dev:full": "concurrently \"npm run dev:wrangler\" \"npm run dev:vite\"",
+    "dev:wrangler": "wrangler pages dev --config wrangler.dev.toml --local --persist-to .wrangler/state --port 8788 -- npm run dev:stub",
+    "dev:vite": "wait-on http://localhost:8788 && vite",
+    "dev:stub": "echo 'Stub server for wrangler pages'",
+    "mock-api": "node scripts/mock-api-server.js",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "db:init": "wrangler d1 execute sporetag-db-local --config wrangler.dev.toml --local --file=./migrations/0001_initial_schema.sql",
+    "db:seed": "node scripts/seed-local-db.js",
     "deploy": "npm run build && wrangler pages deploy dist",
-    "deploy:dev": "npm run build && wrangler pages deploy dist --compatibility-date=2024-07-12"
+    "deploy:dev": "npm run build && wrangler pages deploy dist --compatibility-date=2024-07-12",
+    "prepare": "husky"
   },
   "dependencies": {
     "@cloudflare/workers-types": "^4.20250712.0",
@@ -27,17 +36,33 @@
     "react-leaflet": "^5.0.0",
     "react-leaflet-cluster": "^2.1.0"
   },
+  "lint-staged": {
+    "**/*": [
+      "./scripts/check-secrets.sh"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.6.0",
+    "concurrently": "^9.2.0",
+    "cors": "^2.8.5",
     "eslint": "^9.30.1",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
+    "express": "^5.1.0",
+    "gitleaks": "^1.0.0",
     "globals": "^16.3.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",
-    "vite": "^7.0.4"
+    "vite": "^7.0.4",
+    "wait-on": "^8.0.3",
+    "wrangler": "^4.24.3"
   }
 }

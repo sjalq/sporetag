@@ -348,7 +348,9 @@ const SporeMap: React.FC<SporeMapProps> = ({ className = '' }) => {
         <MarkerClusterGroup
           chunkedLoading
           maxClusterRadius={50}
-          iconCreateFunction={(cluster: any) => {
+          zoomToBoundsOnClick={true}
+          spiderfyOnMaxZoom={true}
+          iconCreateFunction={(cluster: L.MarkerCluster) => {
             const count = cluster.getChildCount();
             let className = 'custom-cluster-icon';
 
